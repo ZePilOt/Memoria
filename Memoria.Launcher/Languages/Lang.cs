@@ -163,6 +163,9 @@ namespace Memoria.Launcher
             public static readonly string SBUIenabled = GetSettings(nameof(SBUIenabled));
             public static readonly string BattleFPS = GetSettings(nameof(BattleFPS));
 
+            public static readonly string UseOrchestralMusic = GetSettings(nameof(UseOrchestralMusic));
+            public static readonly string Use30FpsVideo = GetSettings(nameof(Use30FpsVideo));
+
         }
 
         public static class SdLib

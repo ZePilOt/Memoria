@@ -57,6 +57,8 @@
 			UsePsxFont = "Use PSX font"
 			SBUIenabled = "Scaled Battle UI"
 			BattleFPS = "Battle speed (def. 15)"
+			UseOrchestralMusic = "Orchestral music"
+			Use30FpsVideo = "30 FPS video"
 			/>
 
 	<SdLib

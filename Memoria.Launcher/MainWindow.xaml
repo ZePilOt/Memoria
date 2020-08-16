@@ -6,19 +6,19 @@
         BorderThickness="0" WindowStyle="None" ResizeMode="NoResize">
     <Grid>
         <Image MouseDown="Launcher_MouseDown" x:Name="Launcher" Height="600" VerticalAlignment="Top" Source="/Images/pc_launcher_bg.png"/>
-        <Image MouseDown="Launcher_MouseDown" x:Name="FFIXlogo" Height="133" VerticalAlignment="Top" Source="/Images/logoFFIXr.png" Margin="469,26,31,0"/>
-        <Image MouseDown="Launcher_MouseDown" x:Name="MoguriLogo" Height="66" VerticalAlignment="Top" Source="moguriLogo.png" Margin="620,130,-8,0"/>
+        <Image MouseDown="Launcher_MouseDown" x:Name="FFIXlogo" Height="133" VerticalAlignment="Top" Source="/Images/logoFFIXr.png" Margin="468,10,32,0"/>
+        <Image MouseDown="Launcher_MouseDown" x:Name="MoguriLogo" Height="66" VerticalAlignment="Top" Source="/Images/moguriLogo.png" Margin="612,114,0,0"/>
 
-        <Rectangle Fill="#77F4F4F5" HorizontalAlignment="Left" Height="263" Margin="230,204,0,0" VerticalAlignment="Top" Width="638"/>
+        <Rectangle Fill="#77F4F4F5" HorizontalAlignment="Left" Height="341" Margin="230,180,0,0" VerticalAlignment="Top" Width="638"/>
         <Rectangle Fill="#77F4F4F5" HorizontalAlignment="Left" Height="38" VerticalAlignment="Top" Width="108" Margin="29,31,0,0"/>
         <TextBlock Margin="40,40,0,539" HorizontalAlignment="Left" Width="88" ><Hyperlink NavigateUri="https://sites.google.com/view/moguri-mod/" RequestNavigate="OnHyperlinkClick" Foreground="Black"><Run Text="Moguri Website"/></Hyperlink></TextBlock>
 
         <launcher:GameSettingsControl x:Name="GameSettings" HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Margin="668,0,32,144" Height="244" Width="Auto" RenderTransformOrigin="0.555,0.5" />
 
-        <launcher:MemoriaIniControl x:Name="MemoriaIniControl" HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Margin="230,0,461,133" Height="260" Width="Auto" />
-        <launcher:MemoriaIniCheatControl x:Name="MemoriaIniCheatControl" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0,0,247,123" Height="269" Width="200"/>
+        <launcher:MemoriaIniControl x:Name="MemoriaIniControl" HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Margin="238,0,461,79" Height="333" Width="Auto" />
+        <launcher:MemoriaIniCheatControl x:Name="MemoriaIniCheatControl" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0,0,247,123" Height="289" Width="200"/>
 
-        <launcher:UiLauncherExitButton VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="230,0,0,32" Height="78" Width="209"/>
-        <launcher:UiLauncherPlayButton x:Name="PlayButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,32,32" Width="209" Height="78" Content=""/>
+        <launcher:UiLauncherExitButton VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="230,0,0,32" Height="42" Width="209"/>
+        <launcher:UiLauncherPlayButton x:Name="PlayButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,32,32" Width="209" Height="42" Content=""/>
     </Grid>
 </Window>
