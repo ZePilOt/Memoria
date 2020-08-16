@@ -55,7 +55,7 @@
 			MaxDamage = " 9999 dégats | F3"
 			NoRandomBattles = " Pas de combats aléat. | F4"
 			PermanentCheats = " Triche 'irréversible' | F5 F6 F7"
-			UsePsxFont = " Utiliser la police PS1"
+			UsePsxFont = " Utiliser la fonte PSX"
 			SBUIenabled = " Scaled Battle UI"
 			BattleFPS = "Vitesse combats (déf. 15)"
 			/>

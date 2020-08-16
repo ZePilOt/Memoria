@@ -84,9 +84,9 @@ namespace Memoria.Launcher
             debuggableCheckBox.Margin = rowMargin;
             debuggableCheckBox.SetBinding(ToggleButton.IsCheckedProperty, new Binding(nameof(IsDebugMode)) { Mode = BindingMode.TwoWay });
 
-            UiCheckBox checkUpdates = AddUiElement(UiCheckBoxFactory.Create(Lang.Settings.CheckUpdates, null), 17, 0, 2, 2);
+           /* UiCheckBox checkUpdates = AddUiElement(UiCheckBoxFactory.Create(Lang.Settings.CheckUpdates, null), 17, 0, 2, 2);
             checkUpdates.Margin = rowMargin;
-            checkUpdates.SetBinding(ToggleButton.IsCheckedProperty, new Binding(nameof(CheckUpdates)) { Mode = BindingMode.TwoWay });
+            checkUpdates.SetBinding(ToggleButton.IsCheckedProperty, new Binding(nameof(CheckUpdates)) { Mode = BindingMode.TwoWay });*/
 
             foreach (FrameworkElement child in Children)
             {
