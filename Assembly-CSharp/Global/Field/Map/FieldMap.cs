@@ -800,7 +800,7 @@ public class FieldMap : HonoBehavior
 
                 int threshright = (int)(bgcam_DEF.w - PsxFieldWidth - threshmargin);
 
-                if (map == 103 || map == 1853 || map == 2053) // exception in alex center
+                if (map == 103 || map == 1853 || map == 2053 || map == 2606) // exception in alex center, branbal
                 {
                     threshmargin = (int)(threshmargin + 16);
                 }
@@ -808,10 +808,11 @@ public class FieldMap : HonoBehavior
                 {
                     threshright = (int)(threshright - 32);
                 }
-                if (map == 2606) // exception in memoria castle
+                if (map == 2923) // exception in crystal world
                 {
-                    threshmargin = (int)(threshmargin + 16);
+                    threshmargin = (int)(threshmargin + 20);
                 }
+
                 localPosition.x = (int)(Math.Max(threshmargin, localPosition.x));
                 localPosition.x = (int)(Math.Min(threshright, localPosition.x));
             }
@@ -859,7 +860,7 @@ public class FieldMap : HonoBehavior
 
     private static readonly Dictionary<int, int> mapCameraMargin = new Dictionary<int, int>
     {
-        //{mapNo,extra pixels on each side because of scrollable}
+        //{mapNo,pixels on each side to crop because of scrollable}
         {1051,8},
         {1057,16},
         {1060,16},
@@ -927,7 +928,6 @@ public class FieldMap : HonoBehavior
         {2501,350},
         {2654,350},
         {60,366},
-        {67,366},
         {150,366},
         {161,366},
         {201,366},
@@ -1558,7 +1558,18 @@ public class FieldMap : HonoBehavior
         FieldMapInfo.fieldmapExtraOffset.UpdateOverlayOffset(this.mapName, overlayNdx, ref dz);
         Int16 num = (Int16)(bgoverlay_DEF.orgX + dx);
         Int16 num2 = (Int16)(bgoverlay_DEF.orgY + dy);
-        Int16 num3 = (Int16)(bgoverlay_DEF.orgZ + (UInt16)dz);
+        
+        // TODO Check Native: #147
+        Int16 num3;
+        if (FF9StateSystem.Common.FF9.fldMapNo == 2351 && overlayNdx >= 3 && overlayNdx <= 17)
+        {
+            num3 = 3000;
+        }
+        else
+        {
+            num3 = (Int16)(bgoverlay_DEF.orgZ + (UInt16)dz);
+        }
+        
         if (num < bgoverlay_DEF.minX)
         {
             num = bgoverlay_DEF.minX;

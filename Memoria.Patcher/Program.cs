@@ -251,7 +251,7 @@ namespace Memoria.Patcher
             try
             {
                 foreach (String outputPath in outputPaths)
-                    outputs.Add(OverwrieFile(outputPath));
+                    outputs.Add(OverwriteFile(outputPath));
 
                 while (uncompressedSize > 0)
                 {
@@ -293,7 +293,7 @@ namespace Memoria.Patcher
             }
         }
 
-        private static FileStream OverwrieFile(String outputPath)
+        private static FileStream OverwriteFile(String outputPath)
         {
             if (File.Exists(outputPath))
             {

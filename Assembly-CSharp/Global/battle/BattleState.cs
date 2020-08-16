@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using Memoria.Scripts;
@@ -52,10 +52,11 @@ public class BattleState : MonoBehaviour
 		this.selectPlayerCount = 4;
 		this.isDebug = false;
 		this.isRandomEncounter = false;
+		this.isEncount = false;
 		this.isTutorial = false;
 		battle.isAlreadyShowTutorial = false;
 		this.FF9Battle = new FF9StateBattleSystem();
-		this.FF9Battle.status_data = FF9BattleDB.status_data;
+		this.FF9Battle.status_data = FF9BattleDB.StatusData;
 		this.FF9Battle.aa_data = FF9BattleDB.CharacterActions;
 		this.FF9Battle.add_status = FF9BattleDB.StatusSets;
 		this.fadeShader = ShadersLoader.Find("PSX/BattleMap_Abr_1");
@@ -109,4 +110,6 @@ public class BattleState : MonoBehaviour
 	public FF9StateBattleSystem FF9Battle;
 
 	public Boolean IsPlayFieldBGMInCurrentBattle;
+	
+	public bool isEncount;
 }

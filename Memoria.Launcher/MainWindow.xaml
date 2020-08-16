@@ -20,8 +20,5 @@
 
         <launcher:UiLauncherExitButton VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="230,0,0,32" Height="78" Width="209"/>
         <launcher:UiLauncherPlayButton x:Name="PlayButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,32,32" Width="209" Height="78" Content=""/>
-
-
-
     </Grid>
 </Window>
