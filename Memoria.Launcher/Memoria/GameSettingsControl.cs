@@ -124,19 +124,6 @@ namespace Memoria.Launcher
             }
         }
 
-        public String MoguriFolder
-        {
-            get { return _moguriFolder; }
-            set
-            {
-                if (_moguriFolder != value)
-                {
-                    _moguriFolder = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         public String ActiveMonitor
         {
             get { return _activeMonitor; }
@@ -232,19 +219,6 @@ namespace Memoria.Launcher
             }
         }
 
-        public Boolean CheckUpdates
-        {
-            get => _checkUpdates;
-            set
-            {
-                if (_checkUpdates != value)
-                {
-                    _checkUpdates = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         public Boolean AutoRunGame { get; private set; }
 
         #endregion
@@ -274,20 +248,6 @@ namespace Memoria.Launcher
                     case nameof(IsDebugMode):
                         iniFile.WriteValue("Memoria", propertyName, (IsDebugMode).ToString());
                         break;
-                    case nameof(CheckUpdates):
-                        {
-                            iniFile.WriteValue("Memoria", propertyName, (CheckUpdates).ToString());
-                            if (CheckUpdates)
-                            {
-                                using (ManualResetEvent evt = new ManualResetEvent(false))
-                                {
-                                    Window root = this.GetRootElement() as Window;
-                                    if (root != null)
-                                        await UiLauncherPlayButton.CheckUpdates(root, evt, this);
-                                }
-                            }
-                            break;
-                        }
                 }
             }
             catch (Exception ex)
@@ -307,8 +267,6 @@ namespace Memoria.Launcher
         private Boolean _audioFrequencyEnabled = true;
         private Boolean _isWindowMode = true;
         private Boolean _isDebugMode;
-        private Boolean _checkUpdates;
-        private String _moguriFolder = "";
 
         private void LoadSettings()
         {
@@ -358,32 +316,19 @@ namespace Memoria.Launcher
                 if (!Boolean.TryParse(value, out _isDebugMode))
                     _isDebugMode = false;
 
-                value = iniFile.ReadValue("Memoria", nameof(CheckUpdates));
-                if (String.IsNullOrEmpty(value))
-                    value = "false";
-                if (!Boolean.TryParse(value, out _checkUpdates))
-                    _checkUpdates = false;
-                
                 value = iniFile.ReadValue("Memoria", nameof(AutoRunGame));
                 if (String.IsNullOrEmpty(value))
                     value = "false";
                 AutoRunGame = Boolean.TryParse(value, out var autoRunGame) && autoRunGame;
-
-                value = iniFile.ReadValue("Memoria", nameof(MoguriFolder));
-                if (!String.IsNullOrEmpty(value))
-                    _moguriFolder = value;
-
-                
+            
 
 
                 OnPropertyChanged(nameof(ScreenResolution));
-                OnPropertyChanged(nameof(MoguriFolder));
                 OnPropertyChanged(nameof(ActiveMonitor));
                 OnPropertyChanged(nameof(Windowed));
                 OnPropertyChanged(nameof(AudioFrequency));
                 OnPropertyChanged(nameof(AudioFrequencyEnabled));
                 OnPropertyChanged(nameof(IsDebugMode));
-                OnPropertyChanged(nameof(CheckUpdates));
 
             }
             catch (Exception ex)

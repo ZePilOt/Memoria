@@ -7,7 +7,6 @@ namespace Memoria
     public sealed partial class Configuration : Ini
     {
         private volatile ModSection _mod;
-        private volatile SystemSection _system;
         private volatile FontSection _font;
         private volatile AnalogControlSection _analogControl;
         private volatile GraphicsSection _graphics;
@@ -25,7 +24,6 @@ namespace Memoria
         public Configuration()
         {
             BindingSection(out _mod, v => _mod = v);
-            BindingSection(out _system, v => _system = v);
             BindingSection(out _font, v => _font = v);
             BindingSection(out _analogControl, v => _analogControl = v);
             BindingSection(out _graphics, v => _graphics = v);

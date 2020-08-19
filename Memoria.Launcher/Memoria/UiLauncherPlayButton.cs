@@ -34,12 +34,6 @@ namespace Memoria.Launcher
             Label = Lang.Button.Launching;
             try
             {
-                if (GameSettings.CheckUpdates)
-                {
-                    if (await CheckUpdates((Window)this.GetRootElement(), CancelEvent, GameSettings))
-                        return;
-                }
-
                 if (GameSettings.ScreenResolution == null)
                 {
                     MessageBox.Show((Window)this.GetRootElement(), "Please select an available resolution.", "Information", MessageBoxButton.OK, MessageBoxImage.Asterisk);
@@ -155,32 +149,6 @@ namespace Memoria.Launcher
                 Label = Lang.Button.Launch;
             }
         }
-
-        internal static async Task<Boolean> CheckUpdates(Window rootElement, ManualResetEvent cancelEvent, GameSettingsControl gameSettings)
-        {
-            String applicationPath = Path.GetFullPath(Uri.UnescapeDataString(new UriBuilder(Assembly.GetExecutingAssembly().CodeBase).Path));
-            String installationFolder = gameSettings.MoguriFolder;
-            string fullPath = Path.Combine(installationFolder, "updater.exe");
-
-            int returnCode = await RunProcessAsync(fullPath, "/justcheck");
-
-            if (returnCode == 0)
-            {
-                StringBuilder messageSb = new StringBuilder(256);
-                messageSb.AppendLine(Lang.Message.Question.NewVersionIsAvailable);
-
-                if (MessageBox.Show(rootElement, messageSb.ToString(), Lang.Message.Question.Title, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                {
-                    Process.Start(fullPath, "/checknow");
-                    Environment.Exit(2);
-                    return true;
-
-                }
-            }
-
-            return false;
-        }
-
 
         private static Task<int> RunProcessAsync(string fileName, string parameter)
         {

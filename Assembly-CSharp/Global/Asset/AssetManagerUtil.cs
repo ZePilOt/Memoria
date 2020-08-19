@@ -11,21 +11,9 @@ public static class AssetManagerUtil
 	{
 		if (Application.platform == RuntimePlatform.WindowsPlayer)
 		{
-			string path = GetPath();
-			Log.Message("[assetInterceptor] loading from directory [{0}]", path);
-			if (path == null || (System.IO.Directory.Exists(path)) == false)
-			{
-				Log.Warning("[assetInterceptor] [{0}] not found, loading from default directory", path);
-				path = "./StreamingAssets";
-			}
-			return path;
+			return "./StreamingAssets";
 		}
 		return Application.streamingAssetsPath;
-	}
-
-	private static string GetPath()
-	{
-		return Configuration.System.Path;
 	}
 
 	public static String GetResourcesAssetsPath(Boolean shortVersion)
