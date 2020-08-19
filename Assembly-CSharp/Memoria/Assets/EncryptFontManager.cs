@@ -38,8 +38,8 @@ namespace Memoria.Assets
                 Byte[] binary = ByteEncryption.Decryption(binAsset);
                 fontBundle = AssetBundle.CreateFromMemoryImmediate(binary);
             }
-            if (Configuration.Graphics.UseGarnetFont && fontBundle.Contains("Garnet"))
-                defaultFont = LoadFont(fontBundle.LoadAsset<Font>("Garnet"));
+            if (Configuration.Graphics.UseGarnetFont && fontBundle.Contains("Alexandria"))
+                defaultFont = LoadFont(fontBundle.LoadAsset<Font>("Alexandria"));
             
             else
                 defaultFont = LoadFont(fontBundle.LoadAsset<Font>("TBUDGoStd-Bold"));
