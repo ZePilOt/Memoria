@@ -1014,8 +1014,8 @@ public class SFX
         {
             GL.Viewport(new Rect(SFX.screenWidthOffset, 0f, SFX.screenWidth, SFX.screenHeight));
             GL.LoadIdentity();
-
-            Matrix4x4 mat = Matrix4x4.Ortho(0f, FieldMap.PsxScreenWidthNative, FieldMap.PsxScreenHeightNative, 0f, SFX.fxNearZ, SFX.fxFarZ);
+            Matrix4x4 mat = Matrix4x4.Ortho(0f, FieldMap.PsxScreenWidth, FieldMap.PsxScreenHeightNative, 0f, SFX.fxNearZ, SFX.fxFarZ);
+	
             PsxCamera.SetOrthoZ(ref mat, SFX.fxNearZ, SFX.fxFarZ);
             GL.LoadProjectionMatrix(mat);
         }
